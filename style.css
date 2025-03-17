@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color: #f5f7fa;
+    color: #333;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+  
+  #container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+  }
+  
+  /* Input Section */
+  input#input {
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 70%;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  input#input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+  }
+  
+  input#input::placeholder {
+    color: #aaa;
+  }
+  
+  button#submit {
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  button#submit:hover {
+    background-color: #3a80d2;
+  }
+  
+  /* Instructions */
+  li {
+    margin: 10px 0;
+    list-style-position: inside;
+    color: #666;
+  }
+  
+  /* Calendar */
+  .calendar {
+    margin-top: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: white;
+    border: 1px solid #eaeaea;
+  }
+  
+  #monthName {
+    grid-column: 1 / span 7;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #4a90e2;
+    color: white;
+  }
+  
+  #monthName h1 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  .day-header {
+    padding: 15px 0;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eaeaea;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .day {
+    height: 100px;
+    padding: 10px;
+    text-align: right;
+    border: 1px solid #eaeaea;
+    position: relative;
+    background-color: white;
+    transition: background-color 0.2s;
+    cursor: pointer;
+  }
+  
+  .day:hover {
+    background-color: #f0f7ff;
+  }
+  
+  /* Today's date */
+  .day.today {
+    background-color: #ebf5ff;
+    font-weight: bold;
+    color: #4a90e2;
+    border: 2px solid #4a90e2;
+  }
+  
+  /* Weekend styling */
+  .day:nth-child(7n+1), .day:nth-child(7n) {
+    background-color: #f8f9fa;
+  }
+  
+  /* Empty days - for days from the previous/next month */
+  .day.empty {
+    background-color: #f8f9fa;
+    color: #ccc;
+    cursor: default;
+  }
+  
+  /* Days with events */
+  .day.has-events::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background-color: #4a90e2;
+    border-radius: 50%;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    body {
+      padding: 1rem;
+    }
+    
+    #container {
+      padding: 1rem;
+    }
+    
+    input#input {
+      width: 60%;
+    }
+    
+    .day {
+      height: 70px;
+      font-size: 14px;
+    }
+    
+    .day-header {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    input#input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    
+    button#submit {
+      width: 100%;
+      margin-left: 0;
+    }
+    
+    .day {
+      height: 50px;
+      padding: 5px;
+      font-size: 12px;
+    }
+    
+    .day-header {
+      padding: 10px 0;
+      font-size: 12px;
+    }
+  }
